@@ -1,21 +1,10 @@
 steps:
-# Step 1: Build the Docker image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/sairajapp:$COMMIT_SHA', '.']
-
-# Step 2: Push the Docker image to GCR
+  args: ['build', '-t', 'gcr.io/lab1-434600/my-flask-app', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/sairajapp:$COMMIT_SHA']
-
-# Step 3: Update the container on the Compute Engine instance
+  args: ['push', 'gcr.io/lab1-434600/my-flask-app']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args:
-    - 'compute'
-    - 'instances'
-    - 'update-container'
-    - 'flask-instance'
-    - '--zone=us-central1-a'
-    - '--container-image=gcr.io/$PROJECT_ID/sairajapp:$COMMIT_SHA'
+  args: ['compute', 'instances', 'update-container', 'flask-instance', '--container-image', 'gcr.io/lab1-434600/my-flask-app', '--zone', 'us-central1-a']
 
 images:
-- 'gcr.io/$PROJECT_ID/sairajapp:$COMMIT_SHA'
+- 'gcr.io/lab1-434600/my-flask-app'
