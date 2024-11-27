@@ -8,7 +8,7 @@ steps:
 
 options:
   logging: 'CLOUD_LOGGING_ONLY'
-  logsBucket: 'my-logs-bucket'
+  logsBucket: ' cloud-build-logs-bucket29'
 
 images:
 - 'gcr.io/lab1-434600/my-flask-app'
