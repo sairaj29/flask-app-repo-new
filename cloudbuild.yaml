@@ -6,9 +6,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['compute', 'instances', 'update-container', 'flask-instance', '--container-image', 'gcr.io/lab1-434600/my-flask-app', '--zone', 'us-central1-a']
 
-options:
-  logging: 'CLOUD_LOGGING_ONLY'
-  logsBucket: ' cloud-build-logs-bucket29'
+logsBucket: 'cloud-build-logs-bucket29'
 
 images:
 - 'gcr.io/lab1-434600/my-flask-app'
